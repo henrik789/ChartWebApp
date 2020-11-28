@@ -1,0 +1,11 @@
+.container {
+    justify-content: center;
+    background-color: aquamarine;
+}
+div {
+    justify-content: center;
+    background-color: rgb(62, 179, 140);
+}
+h1 { 
+    color: burlywood;
+}
