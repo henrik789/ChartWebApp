@@ -1,11 +1,124 @@
-.container {
+:root {
+    --main-radius: 0px;
+    --main-padding: 0px;
+    --main-border: 5px solid #ffffff;
+    --pink: #ff4081;
+  }
+  
+  body {
+    font-family: "Inter", sans-serif;
+  }
+  
+  .container {
+    display: grid;
+    /* margin: 0 auto; */
+    height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1.6fr 0.2fr;
+    grid-template-areas:
+    "main"
+    "footer";
+    grid-gap: 0.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #004d40;
+    text-align: center;
+  }
+  
+  #navbar {
+    border: var(--main-border);  
+    background: #ffffff;
+    /* grid-area: nav;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding); */
+    font-weight: bold;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    display: flex;
     justify-content: center;
-    background-color: aquamarine;
-}
-div {
-    justify-content: center;
-    background-color: rgb(62, 179, 140);
-}
-h1 { 
-    color: burlywood;
-}
+    align-items: center;
+    padding: 1em 0;
+  }
+
+  li a {
+    text-decoration: none;
+    color: rgb(3, 2, 2);
+    padding-right: 3em;
+    position: relative;
+    transition: all ease-in-out 250ms;
+  }
+
+  li a::after {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 0.4em;
+    width: 0%;
+    background-color: var(--pink);
+    bottom: -1em;
+    transition: all ease-in-out 250ms;
+  }
+
+  li a:hover::after {
+    width: 60%;
+  }
+
+  li a:hover {
+    color: var(--pink);
+  }
+
+  li:first-child {
+    margin-right: auto;
+    margin-left: 3em;
+  }
+
+
+
+  
+  main {
+    /* position: relative; */
+    border: var(--main-border); 
+    background: #ffffff;
+    grid-area: main;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+  }
+  
+  canvas {
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  
+  
+  footer {
+    border: var(--main-border); 
+    /* background: #1de9b6; */
+    grid-area: footer;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+  }
+  
+  a {
+    text-align: center;
+    display: block;
+    font-family: inherit;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 1rem;
+  }
+  
+  @media only screen and (max-width: 550px) {
+    .container {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1.6fr 0.4fr;
+      grid-template-areas:
+        "main"
+        "footer";
+    }
+  }
+  
