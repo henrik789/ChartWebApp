@@ -14,6 +14,7 @@ function getAPI() {
         if (err) return console.log(err);
       });
     }
+    console.log('file loaded');
 }
 
 module.exports = { getAPI };
