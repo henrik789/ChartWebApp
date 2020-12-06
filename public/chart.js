@@ -101,7 +101,7 @@ function drawChart(result) {
         },
         options: {
             responsive: true,
-            // maintainAspectRatio: false,
+            maintainAspectRatio: false,
             title: {
                 display: true,
                 text: 'Cases of Covid-19 by Continent'
@@ -140,8 +140,8 @@ function drawChart2(result) {
             ]
         },
         options: {
-            responsive: true,
-            maintainAspectRatio: false,
+            // responsive: true,
+            // maintainAspectRatio: false,
             title: {
                 display: true,
                 text: 'Covid-19 tests per one million'
