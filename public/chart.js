@@ -4,14 +4,14 @@ var asiaCases, europeCases, naCases, saCases, africaCases, aoCases = 0;
 var covidGlobal = [];
 var covidArray = [];
 var backgroundColor = ['rgba(255, 99, 132, 0.2)',
-'rgba(54, 162, 235, 0.2)',
-'rgba(255, 206, 86, 0.2)',
-'rgba(75, 192, 192, 0.2)',
-'rgba(153, 102, 255, 0.2)',
-'rgba(255, 159, 64, 0.2)',
-'rgba(255, 99, 132, 0.2)',
-'rgba(54, 162, 235, 0.2)',
-'rgba(255, 206, 86, 0.2)'];
+    'rgba(54, 162, 235, 0.2)',
+    'rgba(255, 206, 86, 0.2)',
+    'rgba(75, 192, 192, 0.2)',
+    'rgba(153, 102, 255, 0.2)',
+    'rgba(255, 159, 64, 0.2)',
+    'rgba(255, 99, 132, 0.2)',
+    'rgba(54, 162, 235, 0.2)',
+    'rgba(255, 206, 86, 0.2)'];
 var borderColor = ['rgba(255, 99, 132, 1)',
     'rgba(54, 162, 235, 1)',
     'rgba(255, 206, 86, 1)',
@@ -55,7 +55,7 @@ function getAPI() {
 }
 
 
- function sortAPI(result) {
+function sortAPI(result) {
     console.log(result);
     for (var i in result) {
         if (result[i].continent === 'North America') {
@@ -94,13 +94,18 @@ function drawChart(result) {
             datasets: [{
                 label: 'Cases of Covid',
                 data: [result[0].cases, result[1].cases, result[2].cases, result[3].cases, result[4].cases, result[5].cases],
-                backgroundColor: backgroundColor,
-                borderColor: borderColor,
+                backgroundColor: ["#F44336", "#2196F3", "#9C27B0", "#FFEB3B", "#E91E63", "#009688"],
+                borderColor: ["#F44336", "#2196F3", "#9C27B0", "#FFEB3B", "#E91E63", "#009688"],
                 borderWidth: 1
             }]
         },
         options: {
             responsive: true,
+            // maintainAspectRatio: false,
+            title: {
+                display: true,
+                text: 'Cases of Covid-19 by Continent'
+            },
             scales: {
                 yAxes: [{
                     ticks: {
@@ -111,6 +116,7 @@ function drawChart(result) {
         }
     });
     console.log(result[2].country, "hejsan");
+    drawChart2(result);
 }
 
 // function drawChart2() {
@@ -120,25 +126,29 @@ function drawChart(result) {
 //         options: options
 //     });
 // }
-
-new Chart(document.getElementById("doughnut-chart"), {
-    type: 'doughnut',
-    data: {
-      labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
-      datasets: [
-        {
-          label: "Population (millions)",
-          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-          data: [2478,5267,734,784,433]
+function drawChart2(result) {
+    new Chart(document.getElementById("doughnut-chart"), {
+        type: 'doughnut',
+        data: {
+            labels: ["North America",  "Asia", "South America", "Europe",  "Africa", "Australia/Oceania"],
+            datasets: [
+                {
+                    label: "Population (millions)",
+                    backgroundColor: ["#F44336", "#2196F3", "#9C27B0", "#FFEB3B", "#E91E63", "#009688"],
+                    data: [result[0].testsPerOneMillion, result[1].testsPerOneMillion, result[2].testsPerOneMillion, result[3].testsPerOneMillion, result[4].testsPerOneMillion, result[5].testsPerOneMillion]
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            title: {
+                display: true,
+                text: 'Covid-19 tests per one million'
+            }
         }
-      ]
-    },
-    options: {
-      title: {
-        display: true,
-        text: 'Predicted world population (millions) in 2050'
-      }
-    }
-});
+    });
+}
+
 
 getAPI()

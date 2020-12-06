@@ -10,7 +10,7 @@
   
   body {
     font-family: "Inter", sans-serif;
-    background-color: #ffffff;
+    background-color: #030303;
   }
   
   .container {
@@ -119,10 +119,11 @@
   
   canvas {
     overflow: hidden;
+    
   }
 
   #doughnut-chart {
-    width: 25vw;
+
   }
 
   #content1 {
