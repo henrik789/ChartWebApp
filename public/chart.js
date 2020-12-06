@@ -23,6 +23,7 @@ var borderColor = ['rgba(255, 99, 132, 1)',
     'rgba(255, 206, 86, 1)'
 ];
 const url = 'https://disease.sh/v3/covid-19/continents';
+const urlCountries = 'https://disease.sh/v3/covid-19/countries';
 
 // var flagName;
 // var points = 0;
@@ -43,7 +44,7 @@ function getAPI() {
         .then(response => response.json())
         .then(data => {
             data.map(obj => covidArray.push(obj));
-            // console.log(covidArray[45].country, covidArray[45].continent);
+            // console.log(covidArray, covidArray[45].continent);
         })
         .then((result) => {
             result = covidArray;
@@ -51,9 +52,25 @@ function getAPI() {
         }).catch((err) => {
             console.error(err);
         });
-    return covidArray;
+    return countriesArray;
 }
 
+function getCountries() {
+    fetch(urlCountries)
+        .then(response => response.json())
+        .then(data => {
+            data.map(obj => countriesArray.push(obj));
+            
+        })
+        .then((result) => {
+            result = countriesArray;
+            console.log(result[89].country);
+            drawContent2(result);
+        }).catch((err) => {
+            console.error(err);
+        });
+    return covidArray;
+}
 
 function sortAPI(result) {
     console.log(result);
@@ -148,7 +165,24 @@ function drawChart2(result) {
             }
         }
     });
+    getCountries()
 }
 
+function drawContent2(result) {
+    document.getElementById('content-2-h4').textContent = 'Country: ' + result[43].country;
+    document.getElementById('cases-content-2').textContent = 'Cases: ' + result[43].cases;
+    document.getElementById('tests-continent-2').textContent = 'Tests: ' + result[43].tests;
+    document.getElementById('population-continent-2').textContent = 'Population: ' + result[43].population;
+    document.getElementById('deaths-continent-2').textContent = 'Deaths: ' + result[43].deaths;
+    document.getElementById('content-2-img').src = 'https://disease.sh/assets/img/flags/co.png';
+    
+    console.log(result[43].country, result[43].flag);
+}
+function drawContent3() {
+    
+}
+function drawContent4() {
+    
+}
 
 getAPI()
