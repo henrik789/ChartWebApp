@@ -2,41 +2,50 @@
     --main-radius: 0px;
     --main-padding: 0px;
     --main-border: 5px solid #ffffff;
-    --pink: #ff4081;
+    --pink: #f50057;
+    --box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
+    0 8px 8px rgba(0,0,0,0.12),
+    0 16px 16px rgba(0,0,0,0.12);
   }
   
   body {
     font-family: "Inter", sans-serif;
+    background-color: #ffffff;
   }
   
   .container {
     display: grid;
-    /* margin: 0 auto; */
+    margin: 0 auto; 
     height: 100vh;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1.6fr 0.2fr;
+    width: 100vw;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 2fr 1fr 0.5fr;
     grid-template-areas:
-    "main"
-    "footer";
+    "nav nav nav"
+    "main main content1"
+    "content2 content3 content4"
+    "footer footer footer";
     grid-gap: 0.5rem;
     font-weight: 800;
     text-transform: uppercase;
     font-size: 12px;
-    color: #004d40;
+    color: #050505;
     text-align: center;
   }
   
   #navbar {
-    border: var(--main-border);  
+    /* border: var(--main-border);   */
     background: #ffffff;
-    /* grid-area: nav;
+    grid-area: nav; 
     border-radius: var(--main-radius);
-    padding-top: var(--main-padding); */
+    padding-top: var(--main-padding);
     font-weight: bold;
+    box-shadow: 0px 4px inset;
   }
 
   ul {
     list-style: none;
+    background-color: rgb(255, 255, 255);
     margin: 0;
     display: flex;
     justify-content: center;
@@ -46,7 +55,7 @@
 
   li a {
     text-decoration: none;
-    color: rgb(3, 2, 2);
+    color: rgb(10, 10, 10);
     padding-right: 3em;
     position: relative;
     transition: all ease-in-out 250ms;
@@ -64,7 +73,7 @@
   }
 
   li a:hover::after {
-    width: 60%;
+    width: 68%;
   }
 
   li a:hover {
@@ -76,31 +85,89 @@
     margin-left: 3em;
   }
 
+  img {
+    margin: 0.6rem;
+  }
 
 
+  .card-container {
+    /* Add shadows to create the "card" effect */
+    margin: 0rem;
+    transition: 0.3s;
+    background-color: #ffffff;
+  }
+  
+  /* On mouse-over, add a deeper shadow */
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  /* Add some padding inside the card container */
+  /* .container {
+    padding: 2px 16px;
+  } */
   
   main {
-    /* position: relative; */
+    position: relative;
     border: var(--main-border); 
-    background: #ffffff;
+    box-shadow: var(--box-shadow);
+    background: white;
     grid-area: main;
     border-radius: var(--main-radius);
     padding-top: var(--main-padding);
   }
   
   canvas {
-    margin: 0 auto;
     overflow: hidden;
   }
 
-  
+  #doughnut-chart {
+    width: 25vw;
+  }
+
+  #content1 {
+    /* border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+    border: var(--main-border);  */
+    box-shadow: var(--box-shadow);
+    grid-area: content1;
+    background-color: #ffffff;
+  }
+   #content2 {
+    /* border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+    border: var(--main-border);  */
+    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.856);
+    background-color: #ffffff;
+    grid-area: content2;
+   }
+   #content3 {
+    /* border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+    border: var(--main-border);  */
+    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.856);
+    background-color: #ffffff;
+    grid-area: content3;
+   }
+   #content4 {
+    /* border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+    border: var(--main-border);  */
+    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.856);
+    grid-area: content4;
+    background-color: #ffffff;
+  }
   
   footer {
-    border: var(--main-border); 
-    /* background: #1de9b6; */
-    grid-area: footer;
-    border-radius: var(--main-radius);
     padding-top: var(--main-padding);
+    /* border: var(--main-border);  */
+    background: #ffffff;
+    grid-area: footer;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em 0;
   }
   
   a {
@@ -114,10 +181,15 @@
   
   @media only screen and (max-width: 550px) {
     .container {
-      grid-template-columns: 1fr;
-      grid-template-rows: 1.6fr 0.4fr;
+      grid-template-columns: auto;
+      grid-template-rows: 0.3fr 1fr 1.3fr 1fr 1fr 1fr 0.3fr;
       grid-template-areas:
+        "nav"
+        "content1"
         "main"
+        "content2"
+        "content3"
+        "content4"
         "footer";
     }
   }

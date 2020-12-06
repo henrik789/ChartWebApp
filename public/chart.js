@@ -33,7 +33,9 @@ const url = 'https://disease.sh/v3/covid-19/continents';
 // var btn3 = document.getElementById('btn3');
 // var btn4 = document.getElementById('btn4');
 // var land = document.getElementById('countryName');
-var ctx = document.getElementById('myChart').getContext('2d');
+var ctx = document.getElementById('bar-chart').getContext('2d');
+
+
 
 
 function getAPI() {
@@ -111,6 +113,32 @@ function drawChart(result) {
     console.log(result[2].country, "hejsan");
 }
 
-// drawChart();
+// function drawChart2() {
+//     var myDoughnutChart = new Chart(ctx2, {
+//         type: 'doughnut',
+//         data: [2, 3, 5, 1, 4],
+//         options: options
+//     });
+// }
+
+new Chart(document.getElementById("doughnut-chart"), {
+    type: 'doughnut',
+    data: {
+      labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+      datasets: [
+        {
+          label: "Population (millions)",
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+          data: [2478,5267,734,784,433]
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Predicted world population (millions) in 2050'
+      }
+    }
+});
 
 getAPI()
