@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <link rel="stylesheet" href="./styles.css">
+    <script defer src="./countries.js"></script>
+    <title>Countries</title>
+</head>
+
+<body>
+    <div id='navbar'>
+        <ul>
+            <!-- <img src="tableLogo.png" alt="Logo"/> -->
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="contries.html">Countries</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for country.."
+                title="Type in a country">
+    <!-- <section class="headerQuery">
+        <h1>Countries</h1>
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for country.."
+            title="Type in a country">
+    </section> -->
+    <!-- <div id="container-flex"></div> -->
+    <!-- <p>Table with colgroup</p> -->
+    <table id="countries">
+        <tr id="top">
+          <th>Country</th>
+          <th>Cases/Population</th>
+          <th>Cases</th>
+          <th>Deaths</th>
+          <th>Tests</th>
+          <th>Population</th>
+        </tr>
+      </table>
+
+    
+</body>
+
+</html>

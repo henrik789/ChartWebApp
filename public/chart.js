@@ -1,8 +1,11 @@
+
 var countriesArray = [];
 var europeArray, asiaArray, naArray, saArray, africaArray, aoArray = [];
 var asiaCases, europeCases, naCases, saCases, africaCases, aoCases = 0;
 var covidGlobal = [];
 var covidArray = [];
+var newsArray = [];
+
 var backgroundColor = ['rgba(255, 99, 132, 0.2)',
     'rgba(54, 162, 235, 0.2)',
     'rgba(255, 206, 86, 0.2)',
@@ -23,17 +26,9 @@ var borderColor = ['rgba(255, 99, 132, 1)',
     'rgba(255, 206, 86, 1)'
 ];
 const url = 'https://disease.sh/v3/covid-19/continents';
+const newsUrl = 'http://newsapi.org/v2/top-headlines?language=en&q=covid&sortBy=publishedAt&apiKey=74ad68a7bbf849108f174e96279aa7af';
 const urlCountries = 'https://disease.sh/v3/covid-19/countries';
 
-// var flagName;
-// var points = 0;
-// const randomNumbers = [];
-// var playerScore = document.getElementById('score-player');
-// var btn1 = document.getElementById('btn1');
-// var btn2 = document.getElementById('btn2');
-// var btn3 = document.getElementById('btn3');
-// var btn4 = document.getElementById('btn4');
-// var land = document.getElementById('countryName');
 var ctx = document.getElementById('bar-chart').getContext('2d');
 
 
@@ -60,16 +55,24 @@ function getCountries() {
         .then(response => response.json())
         .then(data => {
             data.map(obj => countriesArray.push(obj));
-            
         })
         .then((result) => {
             result = countriesArray;
             console.log(result[89].country);
-            drawContent2(result);
         }).catch((err) => {
             console.error(err);
         });
     return covidArray;
+}
+
+function getNews() {
+    fetch(newsUrl)
+        .then(data => {return data.json()})
+        .then(response => {
+            generate_table(response);
+        }).catch((err) => {
+            console.error(err);
+        });           
 }
 
 function sortAPI(result) {
@@ -97,13 +100,18 @@ function sortAPI(result) {
     }
     covidGlobal.push()
     drawChart(naArray, asiaArray, europeArray, saArray, africaArray, aoArray);
+    console.log(newsArray);
 }
 
 
 
 function drawChart(result) {
+    var chartColor = "#000000";
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        chartColor = "#FFFFFF"
+    }
     // console.log('calling');
-
+    Chart.defaults.global.defaultFontColor = chartColor;
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
@@ -134,15 +142,10 @@ function drawChart(result) {
     });
     console.log(result[2].country, "hejsan");
     drawChart2(result);
+    getNews();
 }
 
-// function drawChart2() {
-//     var myDoughnutChart = new Chart(ctx2, {
-//         type: 'doughnut',
-//         data: [2, 3, 5, 1, 4],
-//         options: options
-//     });
-// }
+
 function drawChart2(result) {
     new Chart(document.getElementById("doughnut-chart"), {
         type: 'doughnut',
@@ -157,8 +160,8 @@ function drawChart2(result) {
             ]
         },
         options: {
-            // responsive: true,
-            // maintainAspectRatio: false,
+            responsive: true,
+            maintainAspectRatio: false,
             title: {
                 display: true,
                 text: 'Covid-19 tests per one million'
@@ -168,21 +171,55 @@ function drawChart2(result) {
     getCountries()
 }
 
-function drawContent2(result) {
-    document.getElementById('content-2-h4').textContent = 'Country: ' + result[43].country;
-    document.getElementById('cases-content-2').textContent = 'Cases: ' + result[43].cases;
-    document.getElementById('tests-continent-2').textContent = 'Tests: ' + result[43].tests;
-    document.getElementById('population-continent-2').textContent = 'Population: ' + result[43].population;
-    document.getElementById('deaths-continent-2').textContent = 'Deaths: ' + result[43].deaths;
-    document.getElementById('content-2-img').src = 'https://disease.sh/assets/img/flags/co.png';
+// function drawContent2(result) {
+//     document.getElementById('content-2-h4').textContent = 'Country: ' + result[43].country;
+//     document.getElementById('cases-content-2').textContent = 'Cases: ' + result[43].cases;
+//     document.getElementById('tests-continent-2').textContent = 'Tests: ' + result[43].tests;
+//     document.getElementById('population-continent-2').textContent = 'Population: ' + result[43].population;
+//     document.getElementById('deaths-continent-2').textContent = 'Deaths: ' + result[43].deaths;
+//     document.getElementById('content-2-img').src = 'https://disease.sh/assets/img/flags/co.png';
     
-    console.log(result[43].country, result[43].flag);
-}
-function drawContent3() {
+//     console.log(result[43].country, result[43].flag);
+// }
+// function drawContent3() {
     
-}
-function drawContent4() {
+// }
+// function drawContent4() {
     
-}
+// }
+
+function generate_table(e) {
+    var content = document.getElementById('content');
+
+      for (var j = 0; j < 5; j++) {
+        var row = document.createElement("div");
+        var resp = " ";
+        resp = e.articles[j].title;
+        var cell = document.createElement("p");
+        var para = document.createElement("p");
+        var img = document.createElement("img");
+        var cellText = document.createTextNode(resp);
+        var paraText = document.createTextNode(e.articles[j].description);
+        img.src = e.articles[j].urlToImage;
+        var btnLink = document.createElement("a");
+        btnLink.href = e.articles[j].url;
+        btnLink.textContent = "Full story";
+
+        row.appendChild(img);
+        cell.appendChild(cellText);
+        row.appendChild(cell);
+        para.appendChild(paraText);
+        row.appendChild(para);
+        btnLink.classList.add("card-btn");
+        row.appendChild(btnLink);
+        
+        cell.classList.add("title");
+        row.id = "article" + j;
+        row.classList.add("card");
+        content.appendChild(row);
+      }
+    console.log(e);
+  };
 
 getAPI()
+
