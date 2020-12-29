@@ -125,10 +125,11 @@
    .card-btn {
     color: white;
     position: absolute;
-    border-radius: 1em;
+    /* border-radius: 1em; */
     margin: 1em 0 1em 0;
     bottom: 0;
     border: 0;
+    vertical-align: middle;
     /* text-align: center; */
     background-color: #01579B;
     width: 100%;
@@ -294,7 +295,7 @@
       display: table-cell;
       color: white;
       position: relative;
-      border-radius: 1em;
+      /* border-radius: 1em; */
       margin: auto;
       vertical-align: middle;
       background-color: #01579B;
@@ -386,3 +387,8 @@
   div > p { background: rgb(255, 255, 255); color:  rgb(56, 56, 56); }
   li a { background:  rgb(255, 255, 255); color: rgb(42, 43, 40); }
 }
+
+/*
+git commit -m "added news for countries"
+git push heroku master     
+*/

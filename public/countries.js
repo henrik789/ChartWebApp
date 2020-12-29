@@ -6,7 +6,7 @@ var newsArray = [];
 
 
 const url = 'https://disease.sh/v3/covid-19/continents';
-const newsUrl = 'http://newsapi.org/v2/top-headlines?language=en&q=covid&sortBy=publishedAt&apiKey=74ad68a7bbf849108f174e96279aa7af';
+const newsUrl = 'https://newsapi.org/v2/top-headlines?language=en&q=covid&sortBy=publishedAt&apiKey=74ad68a7bbf849108f174e96279aa7af';
 const urlCountries = 'https://disease.sh/v3/covid-19/countries';
 
 
