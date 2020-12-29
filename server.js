@@ -9,6 +9,7 @@ const { dirname } = require('path');
 const app = express();
 const port = 3000
 var newsArray = [];
+const newsUrl = 'https://newsapi.org/v2/top-headlines?language=en&q=covid&sortBy=publishedAt&apiKey=74ad68a7bbf849108f174e96279aa7af';
 
 
 app.use(express.static(__dirname + '/public'));
@@ -29,27 +30,14 @@ app.listen(process.env.PORT || port, () => {
   //   console.log(covidJson, "hej hopp");
 })
 
-// newsapi key: 74ad68a7bbf849108f174e96279aa7af  
-function newsCall() {
-  newsapi.v2.topHeadlines({
-    // sources: 'bbc-news',
-    q: 'covid',
-    // category: 'business',
-    language: 'en',
-    // country: ''
-  }).then(response => {
-    newsArray = response;
-    // console.log(response);
-  }).catch((err) => {
-    console.error(err);
-  });
-  /*
-    {
-      status: "ok",
-      articles: [...]
-    }
-  */
-  // });s
+function getNews() {
+  fetch(newsUrl)
+      .then(data => {return data.json()})
+      .then(response => {
+          generate_table(response);
+      }).catch((err) => {
+          console.error(err);
+      });           
 }
 
 module.exports = { newsArray };

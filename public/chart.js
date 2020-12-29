@@ -26,7 +26,7 @@ var borderColor = ['rgba(255, 99, 132, 1)',
     'rgba(255, 206, 86, 1)'
 ];
 const url = 'https://disease.sh/v3/covid-19/continents';
-const newsUrl = 'http://newsapi.org/v2/top-headlines?language=en&q=covid&sortBy=publishedAt&apiKey=74ad68a7bbf849108f174e96279aa7af';
+
 const urlCountries = 'https://disease.sh/v3/covid-19/countries';
 
 var ctx = document.getElementById('bar-chart').getContext('2d');
@@ -65,15 +65,7 @@ function getCountries() {
     return covidArray;
 }
 
-function getNews() {
-    fetch(newsUrl)
-        .then(data => {return data.json()})
-        .then(response => {
-            generate_table(response);
-        }).catch((err) => {
-            console.error(err);
-        });           
-}
+
 
 function sortAPI(result) {
     console.log(result);
