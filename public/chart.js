@@ -98,10 +98,10 @@ function getCountries() {
 
 function drawChart(result) {
     var chartColor = "#000000";
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        chartColor = "#FFFFFF"
-    }
-    // console.log('calling');
+    // if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    //     chartColor = "#FFFFFF"
+    // }
+    console.log('calling');
     Chart.defaults.global.defaultFontColor = chartColor;
     var myChart = new Chart(ctx, {
         type: 'bar',
