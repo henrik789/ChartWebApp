@@ -6,7 +6,7 @@ var newsArray = [];
 
 
 const url = 'https://disease.sh/v3/covid-19/continents';
-const newsUrl = 'https://newsapi.org/v2/top-headlines?q=covid&apiKey=74ad68a7bbf849108f174e96279aa7af';
+
 const urlCountries = 'https://disease.sh/v3/covid-19/countries';
 
 
@@ -41,15 +41,15 @@ function getCountries() {
     return covidArray;
 }
 
-function getNews() {
-    fetch(newsUrl)
-        .then(data => { return data.json() })
-        .then(response => {
-            generate_table(response);
-        }).catch((err) => {
-            console.error(err);
-        });
-}
+// function getNews() {
+//     fetch(newsUrl)
+//         .then(data => { return data.json() })
+//         .then(response => {
+//             generate_table(response);
+//         }).catch((err) => {
+//             console.error(err);
+//         });
+// }
 
 
 function myFunction() {

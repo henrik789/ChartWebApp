@@ -26,7 +26,6 @@ var borderColor = ['rgba(255, 99, 132, 1)',
     'rgba(255, 206, 86, 1)'
 ];
 const url = 'https://disease.sh/v3/covid-19/continents';
-
 const urlCountries = 'https://disease.sh/v3/covid-19/countries';
 
 var ctx = document.getElementById('bar-chart').getContext('2d');
@@ -67,33 +66,33 @@ function getCountries() {
 
 
 
-function sortAPI(result) {
-    console.log(result);
-    for (var i in result) {
-        if (result[i].continent === 'North America') {
-            naArray.push(result[i]);
-        } else if (result[i].continent === 'Asia') {
-            asiaArray.push(result[i]);
-        } else if (result[i].continent === 'Europe') {
-            europeArray.push(result[i]);
-        } else if (result[i].continent === 'South America') {
-            saArray.push(result[i]);
-        } else if (result[i].continent === 'Africa') {
-            africaArray.push(result[i]);
-        } else if (result[i].continent === 'Australia/Oceania') {
-            aoArray.push(result[i]);
-        } else {
-            return
-        }
-    }
-    for (var i in europeArray) {
-        europeCases += europeArray[i].cases;
-        console.log(europeArray[i].country, europeCases);
-    }
-    covidGlobal.push()
-    drawChart(naArray, asiaArray, europeArray, saArray, africaArray, aoArray);
-    console.log(newsArray);
-}
+// function sortAPI(result) {
+//     console.log(result);
+//     for (var i in result) {
+//         if (result[i].continent === 'North America') {
+//             naArray.push(result[i]);
+//         } else if (result[i].continent === 'Asia') {
+//             asiaArray.push(result[i]);
+//         } else if (result[i].continent === 'Europe') {
+//             europeArray.push(result[i]);
+//         } else if (result[i].continent === 'South America') {
+//             saArray.push(result[i]);
+//         } else if (result[i].continent === 'Africa') {
+//             africaArray.push(result[i]);
+//         } else if (result[i].continent === 'Australia/Oceania') {
+//             aoArray.push(result[i]);
+//         } else {
+//             return
+//         }
+//     }
+//     for (var i in europeArray) {
+//         europeCases += europeArray[i].cases;
+//         console.log(europeArray[i].country, europeCases);
+//     }
+//     covidGlobal.push()
+//     drawChart(naArray, asiaArray, europeArray, saArray, africaArray, aoArray);
+//     console.log(newsArray);
+// }
 
 
 
@@ -111,8 +110,8 @@ function drawChart(result) {
             datasets: [{
                 label: 'Cases of Covid',
                 data: [result[0].cases, result[1].cases, result[2].cases, result[3].cases, result[4].cases, result[5].cases],
-                backgroundColor: ["#F44336", "#2196F3", "#9C27B0", "#FFEB3B", "#E91E63", "#009688"],
-                borderColor: ["#F44336", "#2196F3", "#9C27B0", "#FFEB3B", "#E91E63", "#009688"],
+                backgroundColor: ['rgba(244,67,54,0.5)', 'rgba(76,175,80,0.5)', 'rgba(233,30,99,0.5)', 'rgba(255,235,59,0.5)', 'rgba(156,39,176,0.5)', 'rgba(33,150,243,0.5)'],
+                borderColor: ['rgba(244,67,54,1)', 'rgba(76,175,80,1)', 'rgba(233,30,99,1)', 'rgba(255,235,59,1)', 'rgba(156,39,176,1)', 'rgba(33,150,243,1)'],
                 borderWidth: 1
             }]
         },
@@ -134,7 +133,7 @@ function drawChart(result) {
     });
     console.log(result[2].country, "hejsan");
     drawChart2(result);
-    getNews();
+    // getNews()
 }
 
 
@@ -146,7 +145,7 @@ function drawChart2(result) {
             datasets: [
                 {
                     label: "Population (millions)",
-                    backgroundColor: ["#F44336", "#2196F3", "#9C27B0", "#FFEB3B", "#E91E63", "#009688"],
+                    backgroundColor: ['rgba(244,67,54,0.5)', 'rgba(76,175,80,0.5)', 'rgba(233,30,99,0.5)', 'rgba(255,235,59,0.5)', 'rgba(156,39,176,0.5)', 'rgba(33,150,243,0.5)'],
                     data: [result[0].testsPerOneMillion, result[1].testsPerOneMillion, result[2].testsPerOneMillion, result[3].testsPerOneMillion, result[4].testsPerOneMillion, result[5].testsPerOneMillion]
                 }
             ]

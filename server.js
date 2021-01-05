@@ -10,7 +10,7 @@ const app = express();
 const port = 3000
 var newsArray = [];
 const newsUrl = 'https://newsapi.org/v2/top-headlines?language=en&q=covid&sortBy=publishedAt&apiKey=74ad68a7bbf849108f174e96279aa7af';
-
+// const newsUrl = 'https://newsapi.org/v2/top-headlines?q=covid&apiKey=74ad68a7bbf849108f174e96279aa7af';
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));

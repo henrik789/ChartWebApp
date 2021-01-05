@@ -4,45 +4,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
-    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
     <link rel="stylesheet" href="./styles.css">
     <script defer src="./countries.js"></script>
-    <title>Countries</title>
+    <title>Dashboard - Countries</title>
 </head>
 
-<body>
-    <div id='navbar'>
-        <ul>
-            <!-- <img src="tableLogo.png" alt="Logo"/> -->
-            <li><a href="/">Dashboard</a></li>
-            <li><a href="contries.html">Countries</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </div>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for country.."
-                title="Type in a country">
-    <!-- <section class="headerQuery">
-        <h1>Countries</h1>
+<body class="brown lighten-5">
+
+
+    <!-- Header -->
+    <header class="brown lighten-5">
+        <nav class="nav-wrapper blue darken-4 z-depth-0">
+            <div class="container">
+                <a href="/" class="brand-logo">.DASHBOARD</a>
+                <a href="" class="sidenav-trigger" data-target="mobile-nav">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="contries.html">Countries</a></li>
+                    <li><a href="/">Dashboard</a></li>
+                    <li><a href="/">Contact</a></li>
+                </ul>
+                <ul class="sidenav grey lighten-4" id="mobile-nav">
+                    <li><a href="contries.html">Countries</a></li>
+                    <li><a href="/">Dashboard</a></li>
+                    <li><a href="/">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- Table -->
+    <div class="container">
         <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for country.."
             title="Type in a country">
-    </section> -->
-    <!-- <div id="container-flex"></div> -->
-    <!-- <p>Table with colgroup</p> -->
-    <table id="countries">
-        <tr id="top">
-          <th>Country</th>
-          <th>Cases/Population</th>
-          <th>Cases</th>
-          <th>Deaths</th>
-          <th>Tests</th>
-          <th>Population</th>
-        </tr>
-      </table>
 
-    
+        <table id="countries">
+            <tr class=" blue darken-1">
+                <th>Country</th>
+                <th>Cases/Population</th>
+                <th>Cases</th>
+                <th>Deaths</th>
+                <th>Tests</th>
+                <th>Population</th>
+            </tr>
+        </table>
+    </div>
+    <!-- Footer -->
+    <footer class="page-footer brown lighten-5">
+        <div class="footer-copyright blue darken-4">
+            <div class="container center-align">&copy; 2018 Henrik Larsson</div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('.sidenav').sidenav();
+            $('.parallax').parallax();
+        });
+    </script>
+
 </body>
 
 </html>
