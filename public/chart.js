@@ -130,7 +130,7 @@ function drawChart(result) {
             datasets: [{
                 label: 'Cases of Covid',
                 data: [result[0].cases, result[1].cases, result[2].cases, result[3].cases, result[4].cases, result[5].cases],
-                backgroundColor: ['rgba(244,67,54,0.5)', 'rgba(76,175,80,0.5)', 'rgba(233,30,99,0.5)', 'rgba(255,235,59,0.5)', 'rgba(156,39,176,0.5)', 'rgba(33,150,243,0.5)'],
+                backgroundColor: ['rgba(244,67,54,0.7)', 'rgba(76,175,80,0.7)', 'rgba(233,30,99,0.7)', 'rgba(255,235,59,0.7)', 'rgba(156,39,176,0.7)', 'rgba(33,150,243,0.7)'],
                 borderColor: ['rgba(244,67,54,1)', 'rgba(76,175,80,1)', 'rgba(233,30,99,1)', 'rgba(255,235,59,1)', 'rgba(156,39,176,1)', 'rgba(33,150,243,1)'],
                 borderWidth: 1
             }]
@@ -165,7 +165,7 @@ function drawChart2(result) {
             datasets: [
                 {
                     label: "Population (millions)",
-                    backgroundColor: ['rgba(244,67,54,0.5)', 'rgba(76,175,80,0.5)', 'rgba(233,30,99,0.5)', 'rgba(255,235,59,0.5)', 'rgba(156,39,176,0.5)', 'rgba(33,150,243,0.5)'],
+                    backgroundColor: ['rgba(244,67,54,0.7)', 'rgba(76,175,80,0.7)', 'rgba(233,30,99,0.7)', 'rgba(255,235,59,0.7)', 'rgba(156,39,176,0.7)', 'rgba(33,150,243,0.7)'],
                     data: [result[0].testsPerOneMillion, result[1].testsPerOneMillion, result[2].testsPerOneMillion, result[3].testsPerOneMillion, result[4].testsPerOneMillion, result[5].testsPerOneMillion]
                 }
             ]
@@ -184,19 +184,28 @@ function drawChart2(result) {
 
 function drawContent2(result) {
     // document.getElementById('article-1').textContent = 'Country: ' + result[43].country;
-    document.getElementById('title-1').textContent =  newsArray[0].title;
-    document.getElementById('paragraph-1').textContent = newsArray[0].content;
-    document.getElementById('link-1').textContent = newsArray[0].url;
-    document.getElementById('link-1').href = newsArray[0].url;
-    document.getElementById('img-1').src = newsArray[0].urlToImage;
-    
+    document.getElementById('title-1').textContent =  newsArray[1].title;
+    document.getElementById('paragraph-1').textContent = newsArray[1].content;
+    document.getElementById('link-1').textContent = newsArray[1].url;
+    document.getElementById('link-1').href = newsArray[1].url;
+    document.getElementById('img-1').src = newsArray[1].urlToImage;
+    drawContent3();
     // console.log(result[43].country, result[43].flag);
 }
 function drawContent3() {
-    
+    document.getElementById('title-2').textContent =  newsArray[2].title;
+    document.getElementById('paragraph-2').textContent = newsArray[2].content;
+    document.getElementById('link-2').textContent = newsArray[2].url;
+    document.getElementById('link-2').href = newsArray[2].url;
+    document.getElementById('img-2').src = newsArray[2].urlToImage;
+    drawContent4();
 }
 function drawContent4() {
-    
+    document.getElementById('title-3').textContent =  newsArray[3].title;
+    document.getElementById('paragraph-3').textContent = newsArray[3].content;
+    document.getElementById('link-3').textContent = newsArray[3].url;
+    document.getElementById('link-3').href = newsArray[3].url;
+    document.getElementById('img-3').src = newsArray[3].urlToImage;
 }
 
 function generate_table(e) {

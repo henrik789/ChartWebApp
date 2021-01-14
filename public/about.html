@@ -11,12 +11,9 @@
     <script defer src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
     <link rel="stylesheet" href="./styles.css">
     <link rel="shortcut icon" href="#">
-    <script defer src="./countries.js"></script>
-    <title>Dashboard - Countries</title>
+    <title>About</title>
 </head>
-
-<body class="brown lighten-5">
-
+<body>
     <!-- Header -->
     <header class="">
         <nav class="nav-wrapper blue darken-4 z-depth-0">
@@ -27,35 +24,34 @@
                 </a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="contries.html">Countries</a></li>
-                    <li><a href="/">Dashboard</a></li>
+                    <li><a href="index.html">Dashboard</a></li>
                     <li><a href="about.html">About</a></li>
                 </ul>
                 <ul class="sidenav white" id="mobile-nav">
                     <li><a href="contries.html">Countries</a></li>
-                    <li><a href="/">Dashboard</a></li>
+                    <li><a href="index.html">Dashboard</a></li>
                     <li><a href="about.html">About</a></li>
                 </ul>
             </div>
         </nav>
     </header>
-    <!-- Table -->
+    <!--    Content     -->
     <div class="container">
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for country.."
-            title="Type in a country">
+        <div class="section">
+    
+          <div class="row">
+            <div class="col s12 center">
+              <h3><i class="mdi-content-send brown-text"></i></h3>
+              <h4>Contact Us</h4>
+              <p class="left-align light">A webapp showing current Covid-19 status. Data is fetched from disease.sh, an open API for disease-related statistics. I've also fetched news articles abour the corona virus from NewsAPI.</p>
+            </div>
+          </div>
+    
+        </div>
+      </div>
 
-        <table id="countries">
-            <tr class=" blue darken-1 col s12 m12 l12">
-                <th>Country</th>
-                <th>Cases/Population</th>
-                <th>Cases</th>
-                <th>Deaths</th>
-                <th>Tests</th>
-                <th>Population</th>
-            </tr>
-        </table>
-    </div>
-    <!-- Footer -->
-    <footer class="page-footer brown lighten-5">
+          <!-- footer -->
+    <footer class="page-footer transparent" id="foot">
         <div class="footer-copyright blue darken-4">
             <div class="container center-align">&copy; 2021 Henrik Larsson</div>
         </div>
@@ -68,10 +64,8 @@
         $(document).ready(function () {
 
             $('.sidenav').sidenav();
-            $('.parallax').parallax();
+
         });
     </script>
-
 </body>
-
 </html>

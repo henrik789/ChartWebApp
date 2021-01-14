@@ -17,6 +17,22 @@ body {
     padding: 8px;
   }
   
+  #articles {
+    border-top: 10px solid #f5f5f5;
+  }
+
+  #content3 {
+    border-top: 10px solid #f5f5f5;
+  }
+
+  #foot {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+
   #countries tr:nth-child(even){background-color: #f1f1f1;}
   
   #countries tr:hover {background-color: #ddd;}

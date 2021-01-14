@@ -29,6 +29,11 @@ app.get('/countries', (req, res) => {
   res.sendFile(__dirname + "contries.html")
 })
 
+app.get('/about', (req, res) => {
+  res.sendFile(__dirname + "about.html")
+})
+
+
 app.get('/api', (req, res) => {
   res.sendFile(__dirname + "/articles.txt")
 })
