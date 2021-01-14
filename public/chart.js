@@ -187,6 +187,7 @@ function drawContent2(result) {
     document.getElementById('title-1').textContent =  newsArray[0].title;
     document.getElementById('paragraph-1').textContent = newsArray[0].content;
     document.getElementById('link-1').textContent = newsArray[0].url;
+    document.getElementById('link-1').href = newsArray[0].url;
     document.getElementById('img-1').src = newsArray[0].urlToImage;
     
     // console.log(result[43].country, result[43].flag);
