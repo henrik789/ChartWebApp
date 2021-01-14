@@ -31,14 +31,34 @@ const urlCountries = 'https://disease.sh/v3/covid-19/countries';
 var ctx = document.getElementById('bar-chart').getContext('2d');
 
 
-
-
 function getAPI() {
+    fetch('/api')
+        .then(response => response.json())
+        .then(data => {
+            // console.log(data);
+            data.articles.map(obj => newsArray.push(obj));
+            getCovidAPI();
+            drawContent2();
+            // console.log(covidArray);
+        })
+        // .then((result) => {
+        //     // result = covidArray;
+        //     drawChart(result);
+        // })
+        .catch((err) => {
+            console.error(err);
+        });
+    return newsArray;
+}
+
+
+
+function getCovidAPI() {
     fetch(url)
         .then(response => response.json())
         .then(data => {
             data.map(obj => covidArray.push(obj));
-            // console.log(covidArray, covidArray[45].continent);
+            console.log(covidArray, covidArray[2].continent);
         })
         .then((result) => {
             result = covidArray;
@@ -162,22 +182,21 @@ function drawChart2(result) {
     getCountries()
 }
 
-// function drawContent2(result) {
-//     document.getElementById('content-2-h4').textContent = 'Country: ' + result[43].country;
-//     document.getElementById('cases-content-2').textContent = 'Cases: ' + result[43].cases;
-//     document.getElementById('tests-continent-2').textContent = 'Tests: ' + result[43].tests;
-//     document.getElementById('population-continent-2').textContent = 'Population: ' + result[43].population;
-//     document.getElementById('deaths-continent-2').textContent = 'Deaths: ' + result[43].deaths;
-//     document.getElementById('content-2-img').src = 'https://disease.sh/assets/img/flags/co.png';
+function drawContent2(result) {
+    // document.getElementById('article-1').textContent = 'Country: ' + result[43].country;
+    document.getElementById('title-1').textContent =  newsArray[0].title;
+    document.getElementById('paragraph-1').textContent = newsArray[0].content;
+    document.getElementById('link-1').textContent = newsArray[0].url;
+    document.getElementById('img-1').src = newsArray[0].urlToImage;
     
-//     console.log(result[43].country, result[43].flag);
-// }
-// function drawContent3() {
+    // console.log(result[43].country, result[43].flag);
+}
+function drawContent3() {
     
-// }
-// function drawContent4() {
+}
+function drawContent4() {
     
-// }
+}
 
 function generate_table(e) {
     var content = document.getElementById('content');

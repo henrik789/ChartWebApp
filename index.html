@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
     <link rel="stylesheet" href="./styles.css">
+    <link rel="shortcut icon" href="#">
     <script defer src="./chart.js"></script>
     <title>Dashboard</title>
 </head>
@@ -48,24 +49,24 @@
             <!-- <h3 class="white-text">Current articles</h1> -->
             <!-- <div class="container"> -->
             <div class="row">
-                <div class="col s12  m6 l4 xl4">
-                    <div class="card">
+                <div class="col s12  m12 l12 xl12" id="article-1">
+                    <div class="card" id="article-1">
                         <div class="card-image">
-                            <img src="https://source.unsplash.com/800x800/?flu" alt="">
-                            <a href="#" class="halfway-fab btn-floating green darken-2">
+                            <img src="https://source.unsplash.com/800x800/?flu" id="img-1" alt="">
+                            <!-- <a href="#" class="halfway-fab btn-floating green darken-2">
                                 <i class="material-icons">favorite</i>
-                            </a>
+                            </a> -->
                         </div>
                         <div class="card-content">
-                            <span class="card-title">This is the title</span>
-                            <p>I am convenient because I require little markup! to use effectively</p>
+                            <span class="card-title" id="title-1">This is the title</span>
+                            <p id="paragraph-1">I am convenient because I require little markup! to use effectively</p>
                         </div>
                         <div class="card-action">
-                            <a href="#" class="grey-text darken-3">Link to article</a>
+                            <a href="#" class="grey-text darken-3" id="link-1">Link to article</a>
                         </div>
                     </div>
                 </div>
-                <div class="col s12  m6 l4 xl4">
+                <!-- <div class="col s12  m6 l4 xl4">
                     <div class="card">
                         <div class="card-image">
                             <img src="https://source.unsplash.com/800x800/?vaccine" alt="">
@@ -98,7 +99,7 @@
                             <a href="#" class="grey-text darken-3">Link to article</a>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             </div>
     </section>
