@@ -9,9 +9,9 @@ const { dirname } = require('path');
 const app = express();
 const port = 3000
 var newsArray = [];
-const newsUrl = 'https://newsapi.org/v2/everything?sources=bbc-news&q=covid&apiKey=74ad68a7bbf849108f174e96279aa7af';
+// const newsUrl = 'https://newsapi.org/v2/everything?sources=bbc-news&domains=nytimes.com&q=covid&apiKey=74ad68a7bbf849108f174e96279aa7af';
 var articles = '';
-// const newsUrl = 'https://newsapi.org/v2/top-headlines?q=covid&apiKey=74ad68a7bbf849108f174e96279aa7af';
+const newsUrl = 'https://newsapi.org/v2/top-headlines?q=covid&language=en&apiKey=74ad68a7bbf849108f174e96279aa7af';
 
 // const dbURL = 'mongodb+srv://covid-data-user:vIxnfEK9WXgiyJw8@node-tut.do54s.mongodb.net/node-tut?retryWrites=true&w=majority';
 // mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true })

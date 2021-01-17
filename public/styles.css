@@ -80,6 +80,10 @@ body {
     display: inline;
   }
 
+  #headline {
+    padding: 1.3em;
+  }
+
   /* #myInput {
     background-image: url('searchicon.png');
     background-position: 10px 15px;

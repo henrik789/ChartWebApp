@@ -58,7 +58,7 @@ function getCovidAPI() {
         .then(response => response.json())
         .then(data => {
             data.map(obj => covidArray.push(obj));
-            console.log(covidArray, covidArray[2].continent);
+            // console.log(covidArray, covidArray[2].continent);
         })
         .then((result) => {
             result = covidArray;
@@ -77,11 +77,12 @@ function getCountries() {
         })
         .then((result) => {
             result = countriesArray;
-            console.log(result[89].country);
+            // console.log(countriesArray.length, result[89].country);
+            drawHeadline();
         }).catch((err) => {
             console.error(err);
         });
-    return covidArray;
+    return countriesArray;
 }
 
 
@@ -121,7 +122,7 @@ function drawChart(result) {
     // if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     //     chartColor = "#FFFFFF"
     // }
-    console.log('calling');
+    // console.log('calling');
     Chart.defaults.global.defaultFontColor = chartColor;
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -151,7 +152,7 @@ function drawChart(result) {
             }
         }
     });
-    console.log(result[2].country, "hejsan");
+    // console.log(result[2].country, "hejsan");
     drawChart2(result);
     // getNews()
 }
@@ -185,28 +186,49 @@ function drawChart2(result) {
 function drawContent2(result) {
     // document.getElementById('article-1').textContent = 'Country: ' + result[43].country;
     document.getElementById('title-1').textContent =  newsArray[1].title;
-    document.getElementById('paragraph-1').textContent = newsArray[1].content;
-    document.getElementById('link-1').textContent = newsArray[1].url;
+    document.getElementById('paragraph-1').textContent = newsArray[1].description;
+    // document.getElementById('link-1').textContent = newsArray[1].url;
     document.getElementById('link-1').href = newsArray[1].url;
-    document.getElementById('img-1').src = newsArray[1].urlToImage;
+    document.getElementById('img-1').src = newsArray[1].urlToImage || 'https://source.unsplash.com/800x800/?covid" alt="Covid news image"';
     drawContent3();
     // console.log(result[43].country, result[43].flag);
 }
 function drawContent3() {
     document.getElementById('title-2').textContent =  newsArray[2].title;
-    document.getElementById('paragraph-2').textContent = newsArray[2].content;
-    document.getElementById('link-2').textContent = newsArray[2].url;
+    document.getElementById('paragraph-2').textContent = newsArray[2].description;
+    // document.getElementById('link-2').textContent = newsArray[2].url;
     document.getElementById('link-2').href = newsArray[2].url;
-    document.getElementById('img-2').src = newsArray[2].urlToImage;
+    document.getElementById('img-2').src = newsArray[2].urlToImage || 'https://source.unsplash.com/800x800/?covid" alt="Covid news image"';
     drawContent4();
 }
 function drawContent4() {
     document.getElementById('title-3').textContent =  newsArray[3].title;
-    document.getElementById('paragraph-3').textContent = newsArray[3].content;
-    document.getElementById('link-3').textContent = newsArray[3].url;
+    document.getElementById('paragraph-3').textContent = newsArray[3].description;
+    // document.getElementById('link-3').textContent = newsArray[3].url;
     document.getElementById('link-3').href = newsArray[3].url;
-    document.getElementById('img-3').src = newsArray[3].urlToImage;
+    document.getElementById('img-3').src = newsArray[3].urlToImage || 'https://source.unsplash.com/800x800/?covid" alt="Covid news image"';
 }
+
+function drawHeadline() {
+    var totalPopulation = 0;
+    var totalCases = 0;
+    for(i = 0; i < countriesArray.length; i++) {
+        totalPopulation += countriesArray[i].population;    
+    }
+    for(i = 0; i < countriesArray.length; i++) {
+        totalCases += countriesArray[i].cases;
+        console.log(countriesArray[i].country)
+    }
+
+    document.getElementById('headline').textContent = 'Currently, the number of people infected with Covid-19 worldwide is ' + toCommas(totalCases) + '. The worst affected country is USA, which has ' + toCommas(countriesArray[208].cases) + ' cases.';
+    console.log(toCommas(totalPopulation), totalCases);
+}
+
+  // Using Regular expression
+  function toCommas(value) {
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
 
 function generate_table(e) {
     var content = document.getElementById('content');
