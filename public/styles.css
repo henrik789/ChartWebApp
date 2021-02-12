@@ -18,7 +18,14 @@ body {
   }
   
 .nav-wrapper, .footer-copyright {
+  vertical-align: middle;
+  display: inline-block;
   background-image: linear-gradient(to right, #0d47a1, #1565c0);
+}
+#logo {
+  width: 2.3em;
+  object-fit: cover;
+  vertical-align: middle;
 }
 
   #articles {
@@ -91,6 +98,23 @@ body {
 
   #headline {
     padding: 1.3em;
+  }
+
+  #text-set-height {
+    height: 30vh;
+  }
+  #about-field {
+    width: 60vw;
+    min-height: auto;
+    margin: auto;
+    margin-top: 3em;
+  }
+  .about_body {
+    background-image: url("Skate.png");
+    background-color: rgb(255, 255, 255);
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    height: 80vh;
   }
 
   /* #myInput {
