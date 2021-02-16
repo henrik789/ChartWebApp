@@ -246,7 +246,7 @@ function showSlides() {
         cell.appendChild(header);
         cell.appendChild(paragraph);
 
-        cell.style.backgroundColor = bgColorsScroll[i];
+        cell.style.backgroundColor = bgColors[i];
         container.appendChild(cell);
     }
     console.log("colors", continentsArray[2].cases);
