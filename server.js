@@ -47,23 +47,23 @@ app.listen(process.env.PORT || port, () => {
 
 function getNews() {
   fetch(newsUrl)
-      .then(response => response.json())
-      .then(data => {
-          // console.log(data);
-          // data.map(obj => newsArray.push(obj));
-          writeArticles(data);
-      })
-      .then((result) => {
-      }).catch((err) => {
-          console.error(err);
-      });
+    .then(response => response.json())
+    .then(data => {
+      // console.log(data);
+      // data.map(obj => newsArray.push(obj));
+      writeArticles(data);
+    })
+    .then((result) => {
+    }).catch((err) => {
+      console.error(err);
+    });
   // return newsArray;
 }
 
 
 function writeArticles(articles) {
   // console.log(articles.articles[6].title);
-  fs.writeFileSync('./articles.txt', JSON.stringify(articles),() => {
+  fs.writeFileSync('./articles.txt', JSON.stringify(articles), () => {
     // console.log('Articles:' +  articles);
     readArticles();
   });
@@ -90,4 +90,100 @@ getNews();
 // mongodb: vIxnfEK9WXgiyJw8
 // mongodb+srv://covid-data-user:<password>@node-tut.do54s.mongodb.net/<dbname>?retryWrites=true&w=majority
 
+
+//''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+
+// //DB
+// const uri = 'mongodb+srv://henrik:landsort2@cluster0.o93u2.mongodb.net/countriesDB'
+// mongoose.connect(uri, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// })
+//   .then(() => {
+//     console.log('MongoDB Connected…');
+//   })
+//   .catch(err => console.log(err))
+
+// //Get the default connection
+// var db = mongoose.connection;
+// //Bind connection to error event (to get notification of connection errors)
+// db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+
+
+
+
+// var countriesArray = [];
+// var covidGlobal = [];
+// var covidArray = [];
+// var newsArray = [];
+
+
+// const url = 'https://disease.sh/v3/covid-19/continents';
+
+// const urlCountries = 'https://restcountries.eu/rest/v2/all';
+
+
+
+// function getAPI() {
+//   fetch(urlCountries)
+//     .then(response => response.json())
+//     .then(data => {
+//       data.map(obj => covidArray.push(obj));
+//       generate_table(data);
+//     })
+//     .then((result) => {
+//     }).catch((err) => {
+//       console.error(err);
+//     });
+//   return countriesArray;
+// }
+
+
+// function generate_table(e) {
+
+//   //Define a schema
+//   var Schema = mongoose.Schema;
+//   var SomeModelSchema = new Schema({
+//     name: String,
+//     capital: String,
+//     population: Number,
+//     region: String,
+//     area: Number,
+//     flag: String
+//   });
+
+//   const CountryModel = mongoose.model('CountryModel', SomeModelSchema);
+
+//   for (var j = 0; j < e.length; j++) {
+
+//     var country = new CountryModel(
+//       {
+//         name: e[j].name,
+//         capital: e[j].capital,
+//         population: e[j].population,
+//         region: e[j].region,
+//         area: e[j].area,
+//         flag: e[j].flag
+//       });
+//     country.save()
+//       .then(() => 
+//       console.log('hej')
+//       ).catch((err) => {
+//         console.error(err);
+//       });
+//   }
+//   CountryModel.find(function (err, cou) {
+//     if(err) return console.error(err);
+//     console.log(cou);
+//   })
+
+// };
+
+
+
+
+// getAPI()
 

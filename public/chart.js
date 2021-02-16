@@ -1,8 +1,10 @@
 
 var countriesArray = [];
+var continentsArray = [];
+var bgColors = ['rgb(183,28,28, 0.7)', 'rgb(26,35,126, 0.7)', 'rgb(0,77,64, 0.7)', 'rgb(245,127,23, 0.7)', 'rgb(1,87,155, 0.7)', 'rgb(136,14,79, 0.7)'];
+var bgColorsScroll = ['rgb(33,33,33, 0.7)', 'rgb(183,28,28, 0.7)', 'rgb(26,35,126, 0.7)', 'rgb(0,77,64, 0.7)', 'rgb(245,127,23, 0.7)', 'rgb(1,87,155, 0.7)', 'rgb(136,14,79, 0.7)'];
 var europeArray, asiaArray, naArray, saArray, africaArray, aoArray = [];
 var asiaCases, europeCases, naCases, saCases, africaCases, aoCases = 0;
-var covidGlobal = [];
 var covidArray = [];
 var newsArray = [];
 
@@ -35,16 +37,10 @@ function getAPI() {
     fetch('/api')
         .then(response => response.json())
         .then(data => {
-            // console.log(data);
             data.articles.map(obj => newsArray.push(obj));
             getCovidAPI();
             drawContent2();
-            // console.log(covidArray);
         })
-        // .then((result) => {
-        //     // result = covidArray;
-        //     drawChart(result);
-        // })
         .catch((err) => {
             console.error(err);
         });
@@ -57,16 +53,15 @@ function getCovidAPI() {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            data.map(obj => covidArray.push(obj));
-            // console.log(covidArray, covidArray[2].continent);
+            data.map(obj => continentsArray.push(obj));
         })
         .then((result) => {
-            result = covidArray;
+            result = continentsArray;
             drawChart(result);
         }).catch((err) => {
             console.error(err);
         });
-    return countriesArray;
+    return continentsArray;
 }
 
 function getCountries() {
@@ -85,38 +80,6 @@ function getCountries() {
     return countriesArray;
 }
 
-
-
-// function sortAPI(result) {
-//     console.log(result);
-//     for (var i in result) {
-//         if (result[i].continent === 'North America') {
-//             naArray.push(result[i]);
-//         } else if (result[i].continent === 'Asia') {
-//             asiaArray.push(result[i]);
-//         } else if (result[i].continent === 'Europe') {
-//             europeArray.push(result[i]);
-//         } else if (result[i].continent === 'South America') {
-//             saArray.push(result[i]);
-//         } else if (result[i].continent === 'Africa') {
-//             africaArray.push(result[i]);
-//         } else if (result[i].continent === 'Australia/Oceania') {
-//             aoArray.push(result[i]);
-//         } else {
-//             return
-//         }
-//     }
-//     for (var i in europeArray) {
-//         europeCases += europeArray[i].cases;
-//         console.log(europeArray[i].country, europeCases);
-//     }
-//     covidGlobal.push()
-//     drawChart(naArray, asiaArray, europeArray, saArray, africaArray, aoArray);
-//     console.log(newsArray);
-// }
-
-
-
 function drawChart(result) {
     var chartColor = "#000000";
     // if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -131,8 +94,8 @@ function drawChart(result) {
             datasets: [{
                 label: 'Cases of Covid',
                 data: [result[0].cases, result[1].cases, result[2].cases, result[3].cases, result[4].cases, result[5].cases],
-                backgroundColor: ['rgba(244,67,54,0.7)', 'rgba(76,175,80,0.7)', 'rgba(233,30,99,0.7)', 'rgba(255,235,59,0.7)', 'rgba(156,39,176,0.7)', 'rgba(33,150,243,0.7)'],
-                borderColor: ['rgba(244,67,54,1)', 'rgba(76,175,80,1)', 'rgba(233,30,99,1)', 'rgba(255,235,59,1)', 'rgba(156,39,176,1)', 'rgba(33,150,243,1)'],
+                backgroundColor: bgColors,
+                borderColor: bgColors,
                 borderWidth: 1
             }]
         },
@@ -166,7 +129,7 @@ function drawChart2(result) {
             datasets: [
                 {
                     label: "Population (millions)",
-                    backgroundColor: ['rgba(244,67,54,0.7)', 'rgba(76,175,80,0.7)', 'rgba(233,30,99,0.7)', 'rgba(255,235,59,0.7)', 'rgba(156,39,176,0.7)', 'rgba(33,150,243,0.7)'],
+                    backgroundColor: bgColors,
                     data: [result[0].testsPerOneMillion, result[1].testsPerOneMillion, result[2].testsPerOneMillion, result[3].testsPerOneMillion, result[4].testsPerOneMillion, result[5].testsPerOneMillion]
                 }
             ]
@@ -217,11 +180,12 @@ function drawHeadline() {
     }
     for(i = 0; i < countriesArray.length; i++) {
         totalCases += countriesArray[i].cases;
-        console.log(countriesArray[i].country)
+        // console.log(countriesArray[i].country)
     }
 
     document.getElementById('headline').textContent = 'Currently, the number of people infected with Covid-19 worldwide is ' + toCommas(totalCases) + '. The worst affected country is USA, which has ' + toCommas(countriesArray[208].cases) + ' cases.';
     console.log(toCommas(totalPopulation), totalCases);
+    showSlides();
 }
 
   // Using Regular expression
@@ -260,8 +224,32 @@ function generate_table(e) {
         row.classList.add("card");
         content.appendChild(row);
       }
-    console.log(e);
+    console.log(e + 'hejsan');
   };
 
-getAPI()
+function showSlides() {
+    var container =  document.getElementById("scroll-container");
+    
+    for (i = 0; i < 6; i++) {
+        var cell = document.createElement("div");
+        var header = document.createElement("p");
+        var paragraph = document.createElement("p");
 
+        var headerText = document.createTextNode(continentsArray[i].continent);
+        var paraText = document.createTextNode('Population: ' + toCommas(continentsArray[i].population) + '\n Recovered: ' + toCommas(continentsArray[i].recovered) + '\n Deaths: ' + toCommas(continentsArray[i].deaths));
+
+        cell.classList.add("card", "scroll-item", "white-text");
+        header.appendChild(headerText);
+        header.id = "paragraphHead";
+        paragraph.appendChild(paraText);
+
+        cell.appendChild(header);
+        cell.appendChild(paragraph);
+
+        cell.style.backgroundColor = bgColorsScroll[i];
+        container.appendChild(cell);
+    }
+    console.log("colors", continentsArray[2].cases);
+}
+
+getAPI()

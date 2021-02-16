@@ -72,7 +72,7 @@ function myFunction() {
 }
 
 function generate_table(e) {
-    
+
     for (var j = 0; j < e.length; j++) {
         var table = document.getElementById('countries').insertRow(-1);
         var percent = (e[j].cases / e[j].population) * 100;
@@ -83,7 +83,17 @@ function generate_table(e) {
         var tests = table.insertCell(4);
         var population = table.insertCell(5);
         countryTitle.innerHTML = (e[j].country);
-        if (percent < 100){
+
+        // const country = new CountryModel(
+        //     {
+        //         name: e[j].country,
+        //         capital: e[j].capital,
+        //         population: e[j].population
+        //     });
+        // country.save()
+        // .then(() => console.log(e[j].country));
+
+        if (percent < 100) {
             capital.innerHTML = (percent.toFixed(2) + '%');
         } else {
             capital.innerHTML = ('NA');
