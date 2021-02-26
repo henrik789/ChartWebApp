@@ -232,7 +232,7 @@ div.scrollmenu a:hover {
 }
 /* rgb(183,28,28), rgb(26,35,126), rgb(0,77,64), rgb(245,127,23), rgb(62,39,35), rgb(191,54,12) */
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 700px){
 #about-field {
   box-shadow: 0 8px 16px 0 rgba(223, 214, 214, 0.753);
   text-align: center;
@@ -243,6 +243,10 @@ div.scrollmenu a:hover {
   margin: auto;
   margin-top: 2em;
   background-color: white;
-
 }
+#logo {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.2em;
+}
+
 }
