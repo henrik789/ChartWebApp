@@ -231,3 +231,18 @@ div.scrollmenu a:hover {
   background-color: rgb(243, 241, 138);
 }
 /* rgb(183,28,28), rgb(26,35,126), rgb(0,77,64), rgb(245,127,23), rgb(62,39,35), rgb(191,54,12) */
+
+@media only screen and (max-width: 600px){
+#about-field {
+  box-shadow: 0 8px 16px 0 rgba(223, 214, 214, 0.753);
+  text-align: center;
+  padding: 1.3em;
+  color: #424242;
+  width: 90vw;
+  min-height: auto;
+  margin: auto;
+  margin-top: 2em;
+  background-color: white;
+
+}
+}
