@@ -173,17 +173,25 @@ function drawContent4() {
 }
 
 function drawHeadline() {
+    options = {
+        year: 'numeric', month: 'numeric', day: 'numeric',
+        hour: 'numeric', minute: 'numeric',
+        hour12: false,
+      };
+      var date = new Date(continentsArray[1].updated);
     var totalPopulation = 0;
     var totalCases = 0;
     for(i = 0; i < countriesArray.length; i++) {
-        totalPopulation += countriesArray[i].population;    
+        totalPopulation += countriesArray[i].population; 
+        
     }
+
     for(i = 0; i < countriesArray.length; i++) {
         totalCases += countriesArray[i].cases;
         // console.log(countriesArray[i].country)
     }
-
-    document.getElementById('headline').textContent = 'Currently, the number of people infected with Covid-19 worldwide is ' + toCommas(totalCases) + '. The worst affected country is USA, which has ' + toCommas(countriesArray[208].cases) + ' cases.';
+    var updated = new Intl.DateTimeFormat('en-US', options).format(date)
+    document.getElementById('headline').textContent = 'Currently, the number of people infected with Covid-19 worldwide is ' + toCommas(totalCases) + '. The worst affected country is USA, which has ' + toCommas(countriesArray[208].cases) + ' cases.' + ' Updated: ' + updated;
     console.log(toCommas(totalPopulation), totalCases);
     showSlides();
 }
@@ -229,14 +237,21 @@ function generate_table(e) {
 
 function showSlides() {
     var container =  document.getElementById("scroll-container");
-    
+    // options = {
+    //     year: 'numeric', month: 'numeric', day: 'numeric',
+    //     hour: 'numeric', minute: 'numeric',
+    //     hour12: false,
+    //   };
     for (i = 0; i < 6; i++) {
+        // var date = new Date(continentsArray[i].updated);
+        // console.log(new Intl.DateTimeFormat('en-US', options).format(date));
+
         var cell = document.createElement("div");
         var header = document.createElement("p");
         var paragraph = document.createElement("p");
 
         var headerText = document.createTextNode(continentsArray[i].continent);
-        var paraText = document.createTextNode('Population: ' + toCommas(continentsArray[i].population) + '\n Recovered: ' + toCommas(continentsArray[i].recovered) + '\n Deaths: ' + toCommas(continentsArray[i].deaths));
+        var paraText = document.createTextNode('Population: ' + toCommas(continentsArray[i].population) + '\n Recovered: ' + toCommas(continentsArray[i].recovered) + '\n Deaths: ' + toCommas(continentsArray[i].deaths) + '\n Tests per one million: ' +toCommas(continentsArray[i].testsPerOneMillion));
 
         cell.classList.add("card", "scroll-item", "white-text");
         header.appendChild(headerText);

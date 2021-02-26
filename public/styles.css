@@ -1,6 +1,9 @@
 
 body {
   background-color: #efebe9 ;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 200;
+  /* font-family: 'Josefin Sans', sans-serif; */
   /* opacity: 1;
   background-image: radial-gradient(#795548  1px, #efebe9  1px);
   background-size: 20px 20px; */
@@ -20,13 +23,18 @@ body {
 .nav-wrapper, .footer-copyright {
   vertical-align: middle;
   display: inline-block;
-  background-image: linear-gradient(to right, #78909c   , #78909c  );
+  background-image: linear-gradient(to right, 	#333, 	#333);
+  font-weight: 500;
 }
-#logo {
+
+.brand-logo {
+  font-family: 'Josefin Sans', sans-serif;
+}
+/* #logo {
   width: 2.3em;
   object-fit: cover;
   vertical-align: middle;
-}
+} */
 
   #articles {
     border-top: 10px solid #f5f5f5;
@@ -37,6 +45,8 @@ body {
   }
 
   #foot {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
     position: fixed;
     left: 0;
     bottom: 0;
@@ -98,6 +108,9 @@ body {
 
   #headline {
     padding: 1.3em;
+    font-weight: 300;
+    background-color: rgba(21, 21, 21, 0.6);
+    color: white;
   }
 
   #headline-container {
@@ -113,18 +126,21 @@ body {
     height: 30vh;
   }
   #about-field {
+    box-shadow: 0 8px 16px 0 rgba(223, 214, 214, 0.753);
+    text-align: center;
+    padding: 1.3em;
+    color: #424242;
     width: 60vw;
     min-height: auto;
     margin: auto;
     margin-top: 3em;
+    background-color: white;
+
   }
-  .about_body {
-    background-image: url("Skate.png");
-    background-color: rgb(255, 255, 255);
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    height: 80vh;
-  }
+
+  #about_body {
+    background-color: white;
+  } 
 
   /* #myInput {
     background-image: url('searchicon.png');

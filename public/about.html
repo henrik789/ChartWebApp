@@ -5,23 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css">
     <link rel="shortcut icon" href="#">
-    <style>
-        html, body, pre, code, kbd, samp {
-            font-family: Press Start 2P;
-            font-size: 1em;
-        }
-      </style>
+
     <title>About</title>
 </head>
-<body class="about_body">
+<body id="about_body">
     <!-- Header -->
     <header class="">
         <nav class="nav-wrapper blue darken-4 z-depth-0">
@@ -45,10 +37,13 @@
     </header>
     <!--    Content     -->
 
-        <div class="nes-container is-rounded is-centered" id="about-field">
+        <div class="container" id="about-field">
             <!-- <p class="title">About this project</p> -->
-            <p>A webapp showing current Covid-19 status. Data is fetched from disease.sh, an open API for disease-related statistics. I've also fetched news articles abour the corona virus from NewsAPI.</p>
-            <a class="nes-btn is-primary" href="/">Ok!</a>  
+            <p>A webapp showing current Covid-19 status. Data is fetched from disease.sh, an open API for disease-related statistics. 
+                I've also fetched news articles abour the corona virus from NewsAPI.
+                Backend is served on Node js server deployed to Heroku with vanilla js adding functionality to the frontend.
+            </p>
+            <a class="waves-effect waves-light grey darken-1 btn" href="/">Ok!</a>  
         </div>
         
     
