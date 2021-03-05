@@ -5,9 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;300;500&family=Josefin+Sans:wght@700&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;300;400;500&family=Josefin+Sans:wght@700&display=swap&family=Material+Icons" rel="stylesheet">    
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
@@ -20,15 +19,14 @@
 <body class="white">
     <!-- Header -->
     <header class="">
-        <nav class="nav-wrapper z-depth-0">
+        <nav class="nav-wrapper z-depth-0 white">
             <div class="container">
-                <!-- <img src="./dash.png"  alt="logo" id="logo"> -->
                 <a href="/" class="brand-logo" id="logo">COVID-STATS
                 </a>
-                <a href="" class="sidenav-trigger" data-target="mobile-nav">
+                <a href="" class="sidenav-trigger" data-target="mobile-nav" id="trigger">
                     <i class="material-icons">menu</i>
                 </a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <ul id="nav-mobile" class="right hide-on-med-and-down ">
                     <li><a href="contries.html">Countries</a></li>
                     <li><a href="/">Home</a></li>
                     <li><a href="about.html">About</a></li>
@@ -42,8 +40,8 @@
         </nav>
     </header>
     <!--    Headline    -->
-    <div class="container col s12 m12 l12 xl12 dark-text" id="headline-container">
-        <h6 id="headline"></h6>
+    <div class="container col s12 m12 l12 xl12" id="headline-container">
+        <p id="headline"></p>
     </div>
 
 
@@ -54,58 +52,6 @@
 
     <!-- Carousel-->
     <div class="scrollmenu container" id="scroll-container">
-            <!-- <div class="card scroll-item white-text">
-                <p id="paragraphHead">Global</p>
-                <p>I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively.</p>
-            </div>
-              <div class="card scroll-item white-text">
-                  <p id="paragraphHead">North America</p>
-                  <p>I am a very simple card. I am good at containing small bits of information.
-                  I am convenient because I require little markup to use effectively.</p>
-              </div>
-
-
-              <div class="card scroll-item white-text">
-                  <p id="paragraphHead">Asia</p>
-                  <p>I am a very simple card. I am good at containing small bits of information.
-                  I am convenient because I require little markup to use effectively.</p>
-              </div>
-
-
-              <div class="card scroll-item white-text">
-                  <p id="paragraphHead">South America</p>
-                  <p>I am a very simple card. I am good at containing small bits of information.
-                  I am convenient because I require little markup to use effectively.</p>
-              </div>
-
-
-            <div class="card scroll-item white-text">
-                <p id="paragraphHead">Europe</p>
-                <p>I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card scroll-item white-text">
-                <p id="paragraphHead">Africa</p>
-                <p>I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card scroll-item white-text">
-                <p id="paragraphHead">Australia/Oceania</p>
-                <p>I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively.</p>
-            </div> -->
-        <!-- <div class="scroll-item card-panel white-text"><a href="#home">Global</a></div>
-        <div class="scroll-item card-panel dark-text">
-            <p class="white-text">North America</p>
-            <p class="item-facts">Cases: </p>
-            <p class="item-facts">Population: </p>
-        </div>
-        <div class="scroll-item card-panel"><a href="#home">Asia</a></div>
-        <div class="scroll-item card-panel"><a href="#home">South America</a></div>
-        <div class="scroll-item card-panel"><a href="#home">Europe</a></div>
-        <div class="scroll-item card-panel"><a href="#home">Africa</a></div>
-        <div class="scroll-item card-panel"><a href="#home">Australia/Oceania</a></div> -->
       </div>
       
     
@@ -113,16 +59,11 @@
     <!-- Articles -->
     <section class="white" id="articles">
         <div class="container">
-            <!-- <h3 class="white-text">Current articles</h1> -->
-            <!-- <div class="container"> -->
             <div class="row">
                 <div class="col s12  m12 l12 xl12" id="article-1">
                     <div class="card transparent white-text" id="article-1">
                         <div class="card-image">
                             <img src="https://source.unsplash.com/800x800/?flu" id="img-1" alt="">
-                            <!-- <a href="#" class="halfway-fab btn-floating green darken-2">
-                                <i class="material-icons">favorite</i>
-                            </a> -->
                         </div>
                         <div class="card-content" id="article-1-content">
                             <span class="card-title" id="title-1">This is the title</span>
@@ -179,30 +120,13 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col s12  m6 l4 xl4">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="https://source.unsplash.com/800x800/?covid" alt="">
-                        <a href="#" class="halfway-fab btn-floating indigo">
-                            <i class="material-icons">favorite</i>
-                        </a>
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title">This is the title</span>
-                        <p>I am convenient because I require little markup! to use effectively</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="#" class="grey-text darken-3">Link to article</a>
-                    </div>
-                </div>
-            </div> -->
             </div>
         </div>
     </section>
 
     <!-- footer -->
-    <footer class="page-footer transparent">
-        <div class="footer-copyright">
+    <footer class="page-footer white">
+        <div class="footer-copyright white">
             <div class="container center-align">&copy; 2021 Henrik Larsson</div>
         </div>
     </footer>

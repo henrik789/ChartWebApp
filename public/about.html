@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;300;500&family=Josefin+Sans:wght@700&display=swap" rel="stylesheet">    
-
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;300;500&family=Josefin+Sans:wght@700&display=swap&family=Material+Icons" rel="stylesheet">    
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./styles.css">
@@ -18,10 +16,10 @@
 <body id="about_body">
     <!-- Header -->
     <header class="">
-        <nav class="nav-wrapper blue darken-4 z-depth-0">
+        <nav class="nav-wrapper z-depth-0 white">
             <div class="container">
                 <a href="/" class="brand-logo" id="logo">COVID-STATS</a>
-                <a href="" class="sidenav-trigger" data-target="mobile-nav">
+                <a href="" class="sidenav-trigger" data-target="mobile-nav" id="trigger">
                     <i class="material-icons">menu</i>
                 </a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -45,28 +43,15 @@
                 I've also fetched news articles abour the corona virus from NewsAPI.
                 Backend is served on Node js server deployed to Heroku with vanilla js adding functionality to the frontend.
             </p>
-            <a class="waves-effect waves-light grey darken-1 btn" href="/">Ok!</a>  
+            <a class="waves-effect waves-light blue darken-2 btn" href="/">Ok!</a>  
         </div>
         
     
     </div>
-    <!-- <div class="container">
-        <div class="section">
-    
-          <div class="row">
-            <div class="col s12 center">
-              <h3><i class="mdi-content-send brown-text"></i></h3>
-              <h4>About this project</h4>
-              <p class="left-align light">A webapp showing current Covid-19 status. Data is fetched from disease.sh, an open API for disease-related statistics. I've also fetched news articles abour the corona virus from NewsAPI.</p>
-            </div>
-          </div>
-    
-        </div>
-      </div> -->
 
           <!-- footer -->
-    <footer class="page-footer transparent" id="foot">
-        <div class="footer-copyright blue darken-4">
+    <footer class="page-footer white" id="foot">
+        <div class="footer-copyright white">
             <div class="container center-align">&copy; 2021 Henrik Larsson</div>
         </div>
     </footer>

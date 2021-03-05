@@ -1,36 +1,11 @@
 
 var countriesArray = [];
 var continentsArray = [];
-var bgColors = ['rgb(183,28,28, 0.7)', 'rgb(26,35,126, 0.7)', 'rgb(0,77,64, 0.7)', 'rgb(245,127,23, 0.7)', 'rgb(1,87,155, 0.7)', 'rgb(136,14,79, 0.7)'];
-var bgColorsScroll = ['rgb(33,33,33, 0.7)', 'rgb(183,28,28, 0.7)', 'rgb(26,35,126, 0.7)', 'rgb(0,77,64, 0.7)', 'rgb(245,127,23, 0.7)', 'rgb(1,87,155, 0.7)', 'rgb(136,14,79, 0.7)'];
-var europeArray, asiaArray, naArray, saArray, africaArray, aoArray = [];
-var asiaCases, europeCases, naCases, saCases, africaCases, aoCases = 0;
-var covidArray = [];
 var newsArray = [];
-
-var backgroundColor = ['rgba(255, 99, 132, 0.2)',
-    'rgba(54, 162, 235, 0.2)',
-    'rgba(255, 206, 86, 0.2)',
-    'rgba(75, 192, 192, 0.2)',
-    'rgba(153, 102, 255, 0.2)',
-    'rgba(255, 159, 64, 0.2)',
-    'rgba(255, 99, 132, 0.2)',
-    'rgba(54, 162, 235, 0.2)',
-    'rgba(255, 206, 86, 0.2)'];
-var borderColor = ['rgba(255, 99, 132, 1)',
-    'rgba(54, 162, 235, 1)',
-    'rgba(255, 206, 86, 1)',
-    'rgba(75, 192, 192, 1)',
-    'rgba(153, 102, 255, 1)',
-    'rgba(255, 159, 64, 1)',
-    'rgba(255, 99, 132, 1)',
-    'rgba(54, 162, 235, 1)',
-    'rgba(255, 206, 86, 1)'
-];
+var ctx = document.getElementById('bar-chart').getContext('2d');
+var bgColors = ['rgb(183,28,28, 0.7)', 'rgb(26,35,126, 0.7)', 'rgb(0,77,64, 0.7)', 'rgb(245,127,23, 0.7)', 'rgb(1,87,155, 0.7)', 'rgb(136,14,79, 0.7)'];
 const url = 'https://disease.sh/v3/covid-19/continents';
 const urlCountries = 'https://disease.sh/v3/covid-19/countries';
-
-var ctx = document.getElementById('bar-chart').getContext('2d');
 
 
 function getAPI() {
@@ -46,8 +21,6 @@ function getAPI() {
         });
     return newsArray;
 }
-
-
 
 function getCovidAPI() {
     fetch(url)
@@ -72,7 +45,6 @@ function getCountries() {
         })
         .then((result) => {
             result = countriesArray;
-            // console.log(countriesArray.length, result[89].country);
             drawHeadline();
         }).catch((err) => {
             console.error(err);
@@ -82,10 +54,7 @@ function getCountries() {
 
 function drawChart(result) {
     var chartColor = "#000000";
-    // if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    //     chartColor = "#FFFFFF"
-    // }
-    // console.log('calling');
+
     Chart.defaults.global.defaultFontColor = chartColor;
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -115,9 +84,7 @@ function drawChart(result) {
             }
         }
     });
-    // console.log(result[2].country, "hejsan");
     drawChart2(result);
-    // getNews()
 }
 
 
@@ -147,19 +114,19 @@ function drawChart2(result) {
 }
 
 function drawContent2(result) {
-    // document.getElementById('article-1').textContent = 'Country: ' + result[43].country;
+    
     document.getElementById('title-1').textContent =  newsArray[1].title;
     document.getElementById('paragraph-1').textContent = newsArray[1].description;
-    // document.getElementById('link-1').textContent = newsArray[1].url;
+    
     document.getElementById('link-1').href = newsArray[1].url;
     document.getElementById('img-1').src = newsArray[1].urlToImage || 'https://source.unsplash.com/800x800/?covid" alt="Covid news image"';
     drawContent3();
-    // console.log(result[43].country, result[43].flag);
+    
 }
 function drawContent3() {
     document.getElementById('title-2').textContent =  newsArray[2].title;
     document.getElementById('paragraph-2').textContent = newsArray[2].description;
-    // document.getElementById('link-2').textContent = newsArray[2].url;
+    
     document.getElementById('link-2').href = newsArray[2].url;
     document.getElementById('img-2').src = newsArray[2].urlToImage || 'https://source.unsplash.com/800x800/?covid" alt="Covid news image"';
     drawContent4();
@@ -167,7 +134,7 @@ function drawContent3() {
 function drawContent4() {
     document.getElementById('title-3').textContent =  newsArray[3].title;
     document.getElementById('paragraph-3').textContent = newsArray[3].description;
-    // document.getElementById('link-3').textContent = newsArray[3].url;
+    
     document.getElementById('link-3').href = newsArray[3].url;
     document.getElementById('img-3').src = newsArray[3].urlToImage || 'https://source.unsplash.com/800x800/?covid" alt="Covid news image"';
 }
@@ -188,10 +155,10 @@ function drawHeadline() {
 
     for(i = 0; i < countriesArray.length; i++) {
         totalCases += countriesArray[i].cases;
-        // console.log(countriesArray[i].country)
+    
     }
     var updated = new Intl.DateTimeFormat('en-US', options).format(date)
-    document.getElementById('headline').textContent = 'Currently, the number of people infected with Covid-19 worldwide is ' + toCommas(totalCases) + '. The worst affected country is USA, which has ' + toCommas(countriesArray[208].cases) + ' cases.' + ' Updated: ' + updated;
+    document.getElementById('headline').textContent = 'Currently, the number of people infected with Covid-19 worldwide is ' + toCommas(totalCases) + '. The worst affected country is USA, which has ' + toCommas(countriesArray[208].cases) + ' cases.' + ' Last updated: ' + updated;
     console.log(toCommas(totalPopulation), totalCases);
     showSlides();
 }
@@ -237,15 +204,7 @@ function generate_table(e) {
 
 function showSlides() {
     var container =  document.getElementById("scroll-container");
-    // options = {
-    //     year: 'numeric', month: 'numeric', day: 'numeric',
-    //     hour: 'numeric', minute: 'numeric',
-    //     hour12: false,
-    //   };
     for (i = 0; i < 6; i++) {
-        // var date = new Date(continentsArray[i].updated);
-        // console.log(new Intl.DateTimeFormat('en-US', options).format(date));
-
         var cell = document.createElement("div");
         var header = document.createElement("p");
         var paragraph = document.createElement("p");

@@ -4,12 +4,8 @@ var covidGlobal = [];
 var covidArray = [];
 var newsArray = [];
 
-
 const url = 'https://disease.sh/v3/covid-19/continents';
-
 const urlCountries = 'https://disease.sh/v3/covid-19/countries';
-
-
 
 function getAPI() {
     fetch(urlCountries)
@@ -40,17 +36,6 @@ function getCountries() {
         });
     return covidArray;
 }
-
-// function getNews() {
-//     fetch(newsUrl)
-//         .then(data => { return data.json() })
-//         .then(response => {
-//             generate_table(response);
-//         }).catch((err) => {
-//             console.error(err);
-//         });
-// }
-
 
 function myFunction() {
     var input, filter, table, tr, td, i, txtValue;
@@ -83,16 +68,6 @@ function generate_table(e) {
         var tests = table.insertCell(4);
         var population = table.insertCell(5);
         countryTitle.innerHTML = (e[j].country);
-
-        // const country = new CountryModel(
-        //     {
-        //         name: e[j].country,
-        //         capital: e[j].capital,
-        //         population: e[j].population
-        //     });
-        // country.save()
-        // .then(() => console.log(e[j].country));
-
         if (percent < 100) {
             capital.innerHTML = (percent.toFixed(2) + '%');
         } else {
@@ -125,41 +100,6 @@ function myFunction() {
         }
     }
 }
-
-// function generate_table(e) {
-//     var content = document.getElementById('container-flex');
-
-//       for (var j = 0; j < e.length; j++) {
-
-//         var card = document.createElement("div");
-//         var countryTitle = document.createElement("p");
-//         var casesP = document.createElement("p");
-//         var img = document.createElement("img");
-//         var populationP = document.createElement("p");
-//         var countryTitleText = document.createTextNode('Country: ' + e[j].country);
-//         var casesPText = document.createTextNode('Number of cases: ' + e[j].cases);
-//         var testsP = document.createElement("p");
-//         var testsPText = document.createTextNode('Number of tests: ' + e[j].tests);
-//         var populationPText = document.createTextNode('Population: ' + e[j].population);
-//         img.src = e[j].countryInfo.flag;
-//         countryTitle.appendChild(countryTitleText);
-
-//         casesP.appendChild(casesPText);
-//         testsP.appendChild(testsPText);
-//         populationP.appendChild(populationPText);
-//         card.appendChild(img);
-//         card.appendChild(countryTitle);
-//         card.appendChild(casesP);
-//         card.appendChild(testsP);
-//         card.appendChild(populationP);
-
-//         card.id = "country-container" + j;
-//         card.classList.add("card-country");
-//         img.classList.add("flag");
-//         content.appendChild(card);
-//       }
-
-//   };
 
 getAPI()
 
