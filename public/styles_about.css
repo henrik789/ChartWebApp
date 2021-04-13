@@ -53,6 +53,11 @@ body {
   height: 83vh;
   /* grid-row-end: 4; */
 }
+#linkImg{
+  height: 4em;
+  vertical-align: middle;
+  display: inline-block;
+}
   
   .nav-wrapper .footer-copyright {
   vertical-align: middle;
