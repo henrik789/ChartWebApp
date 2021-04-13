@@ -3,10 +3,14 @@ body {
   background-color: #efebe9 ;
   font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 200;
+  height: 100%;
+  /* background-repeat: repeat; */
+  /* background-size: cover; */
   /* font-family: 'Josefin Sans', sans-serif; */
-  /* opacity: 1;
-  background-image: radial-gradient(#795548  1px, #efebe9  1px);
-  background-size: 20px 20px; */
+  /* opacity: 1; */
+  /* background-image: url("bg_grey.jpg"); */
+  /* background-image: radial-gradient(#795548  1px, #efebe9  1px); */
+  /* background-size: 20px 20px;  */
 }
   #countries {
     /* font-family: Arial, Helvetica, sans-serif;
@@ -135,20 +139,35 @@ nav ul a, nav .brand-logo, footer div, #trigger {
     height: 30vh;
   }
   #about-field {
-    box-shadow: 0 8px 16px 0 rgba(223, 214, 214, 0.753);
+    /* box-shadow: 0 8px 16px 0 rgba(223, 214, 214, 0.753); */
     text-align: center;
     padding: 1.3em;
-    color: #efebe9 ;
+    font-weight: 300;
+    /* color: #ffffff ; */
     width: 60vw;
-    min-height: auto;
-    margin: auto;
-    margin-top: 3em;
-    background-color: #1e88e5  ;
+    min-height: 40vh;
+    /* margin: auto; */
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    /* margin-top: 2em; */
+    /* background-color: #1e88e5  ; */
+    position: absolute;
+    background: rgba(255, 255, 255, .7);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
 
   }
 
   #about_body {
-    background-color: white;
+    height: 100vh;
+    /* background-image: url('tableLogo.png'); */
+    position: relative;
+    /* background-image: linear-gradient(to bottom, rgb(255, 209, 5), rgba(255, 0, 13, 0.815)), url("skate.png"); */
+  /* Center and scale the image nicely */
+  /* background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
   } 
 
   /* #myInput {
