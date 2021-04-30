@@ -1,11 +1,14 @@
 
 body {
-  background-color: #efebe9 ;
+  /* background-color: #efebe9 ; */
+  background-image: url("corona_1920.jpg");
   font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 200;
   height: 100%;
   position: relative;
   height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .wrapper {
@@ -63,8 +66,6 @@ body {
   vertical-align: middle;
   display: inline-block;
   border-bottom: rgba(0, 0, 0, 0.308) 1px solid;
-  /* background-color: rgba(204, 0, 0, 0.8); */
-  /* background-image: linear-gradient(to right, 	#333, 	#333); */
   font-weight: 500;
 }
 
@@ -161,7 +162,7 @@ div.scrollmenu div {
 div.scrollmenu a:hover {
   background-color: rgb(243, 241, 138);
 }
-/* rgb(183,28,28), rgb(26,35,126), rgb(0,77,64), rgb(245,127,23), rgb(62,39,35), rgb(191,54,12) */
+
 
 @media only screen and (max-width: 700px){
 #about-field {

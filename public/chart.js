@@ -158,8 +158,8 @@ function drawHeadline() {
     
     }
     var updated = new Intl.DateTimeFormat('en-US', options).format(date)
-    document.getElementById('headline').textContent = 'Currently, the number of people infected with Covid-19 worldwide is ' + toCommas(totalCases) + '. The worst affected country is USA, which has ' + toCommas(countriesArray[208].cases) + ' cases.' + ' Last updated: ' + updated;
-    console.log(toCommas(totalPopulation), totalCases);
+    document.getElementById('headline').textContent = 'Currently, the number of people infected with Covid-19 worldwide is ' + toCommas(totalCases) + '. The worst affected country is USA, which has ' + toCommas(countriesArray[209].cases) + ' cases.' + ' Last updated: ' + updated;
+    console.log(toCommas(totalPopulation), totalCases, countriesArray[209].country);
     showSlides();
 }
 
